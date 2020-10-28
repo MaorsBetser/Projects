@@ -227,17 +227,17 @@ void print_winner(void)
     return;
 }
 //checks every pair for cycle
-bool is_cycle(int w, int l)
+bool is_cycle(int a, int b)// winner loser
 {
-    if(locked[w][l] == true)
+    if(locked[a][b] == true)
     {
         return true;
     }
     for(int i = 0; i < candidate_count; i++)
     {
-        if(locked[i][w] == true)
+        if(locked[i][a] == true)
         {
-            is_cycle(i, l);
+            is_cycle(i, b);
         }
     }
     return false;
